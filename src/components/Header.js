@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../Styles/App.css";
+import DarkMode from "../components/Dark";
 
 const Header = (props) => {
   const [userName, setUserName] = useState("")
-  const [isUsername, setIsusername] = useState(false)
+  const [isUsername, setIsusername] = useState(true)
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsusername(true)
+    setIsusername(isUsername)
+    
     if (userName) {
       localStorage.setItem("Username", userName)
     }
+   
     setUserName("")
-    isUsername(false)
+    
   }
 
   return (
@@ -48,6 +53,7 @@ const Header = (props) => {
             </li>
           </ul>
         </div>
+        <DarkMode />
       </div>
     </nav >
   );
