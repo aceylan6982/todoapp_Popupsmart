@@ -5,9 +5,11 @@ import UpdateTodo from "./pages/UpdateTodo";
 import Home from "./pages/Home";
 
 
+
 function App(props) {
+
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add-todo" element={<AddTodo />} />

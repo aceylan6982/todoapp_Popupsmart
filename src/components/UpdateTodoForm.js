@@ -19,10 +19,11 @@ function UpdateTodoForm(props) {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      if (Number(content).length >=3 ) {
-        alert("New todo must contain three words at least");
+      
+      if (content.length < 3 ) {
+        alert(`New todo must contain three words at least. You have to add ${3- (content.length)} word`);
         return;
-      }
+      } 
      
       const newTodos = {
       content: content,

@@ -12,15 +12,18 @@ const AddTodoForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (Number(content).length >=3 ) {
-      alert("New todo must contain three words at least");
+
+    if (content.length < 3 ) {
+      alert(`New todo must contain three words at least. You have to add ${3- (content.length)} word`);
       return;
-    }
+    } 
     const newTodos = {
       content: content,
       user: user,
       system: system
     };
+   
+    
     axios
       .post("https://630fadfe36e6a2a04edfc321.mockapi.io/todos", newTodos)
       .then((res) => {
@@ -31,6 +34,9 @@ const AddTodoForm = (props) => {
         navigate("/");
       })
       .catch((err) => console.log(err));
+
+
+    
   };
   
   return (
