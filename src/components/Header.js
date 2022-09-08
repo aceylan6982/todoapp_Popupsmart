@@ -5,18 +5,18 @@ import DarkMode from "../components/Dark";
 
 const Header = (props) => {
   const [userName, setUserName] = useState("")
-  const [isUsername, setIsusername] = useState(true)
+  const [isUsername, setIsusername] = useState(false)
  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsusername(isUsername)
-    
+  
     if (userName) {
-      localStorage.setItem("Username", userName)
+      localStorage.setItem("Username", userName) 
     }
-   
+    
     setUserName("")
+    setIsusername(!isUsername)
     
   }
 
@@ -49,6 +49,7 @@ const Header = (props) => {
                 <div>
                   <button onClick={handleSubmit} type="submit" className="btn btn-success w-100 text-center">Save</button>
                 </div>
+                {isUsername===true && <p className="pisurname">Welcome {localStorage.getItem("Username", userName)}</p>}
               </Link>
             </li>
           </ul>
